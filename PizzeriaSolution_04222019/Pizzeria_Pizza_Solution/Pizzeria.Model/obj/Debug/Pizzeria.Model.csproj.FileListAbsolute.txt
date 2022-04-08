@@ -1,0 +1,9 @@
+C:\Users\Rohit\Documents\Visual Studio 2017\Projects\PizzeriaSolution\Pizzeria.Model\obj\Debug\Pizzeria.Model.csprojAssemblyReference.cache
+C:\Users\Rohit\Documents\Visual Studio 2017\Projects\PizzeriaSolution\Pizzeria.Model\obj\Debug\Pizzeria.Model.csproj.CoreCompileInputs.cache
+C:\Users\Rohit\Documents\Visual Studio 2017\Projects\PizzeriaSolution\Pizzeria.Model\bin\Debug\Pizzeria.Model.dll
+C:\Users\Rohit\Documents\Visual Studio 2017\Projects\PizzeriaSolution\Pizzeria.Model\bin\Debug\Pizzeria.Model.pdb
+C:\Users\Rohit\Documents\Visual Studio 2017\Projects\PizzeriaSolution\Pizzeria.Model\bin\Debug\System.ComponentModel.Annotations.dll
+C:\Users\Rohit\Documents\Visual Studio 2017\Projects\PizzeriaSolution\Pizzeria.Model\bin\Debug\System.ComponentModel.Annotations.xml
+C:\Users\Rohit\Documents\Visual Studio 2017\Projects\PizzeriaSolution\Pizzeria.Model\obj\Debug\Pizzeria.Model.csproj.CopyComplete
+C:\Users\Rohit\Documents\Visual Studio 2017\Projects\PizzeriaSolution\Pizzeria.Model\obj\Debug\Pizzeria.Model.dll
+C:\Users\Rohit\Documents\Visual Studio 2017\Projects\PizzeriaSolution\Pizzeria.Model\obj\Debug\Pizzeria.Model.pdb

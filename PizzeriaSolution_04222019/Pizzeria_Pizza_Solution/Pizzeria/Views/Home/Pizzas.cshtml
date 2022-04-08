@@ -1,0 +1,162 @@
+﻿@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+@{
+    ViewData["Title"] = "Pizzas";
+}
+
+<section class="page-info new-block">
+    <div class="fixed-bg" style="background: url('/images/info-bg.jpg');"></div>
+    <div class="overlay"></div>
+    <div class="container">
+        <h1>Pizzas</h1>
+        <h4>pizza makes everything better</h4>
+        <div class="clear-fix"></div>
+    </div>
+</section>
+
+
+<section class="domnoo-menu-filter list-grid-sec new-block">
+    <div class="overlay"></div>
+    <div class="filters">
+
+        <div class="filter-tabnav text-center">
+            <div class="container">
+                <ul class="button-group js-radio-button-group" data-filter-group="item_cat_inner">
+                    <li class="sort-btn tab-flr-btn-sort-btn-active" data-sort="default:asc"><span>Newest</span></li>
+                    <li class="sort-btn" data-sort="popularity:asc"><span>Popular</span></li>
+                    <li class="sort-btn" data-sort="price:asc"><span>Low to High</span></li>
+                    <li class="sort-btn" data-sort="price:desc"><span>High to Low</span></li>
+                </ul>
+                <ul class="filter-check">
+                    <li>
+                        <div class="form-check">
+                            <label>
+                                <input type="radio" name="level"> <span class="label-text">Veg</span>
+                            </label>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="form-check">
+                            <label>
+                                <input type="radio" name="level"> <span class="label-text">Non Veg</span>
+                            </label>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="form-check">
+                            <label>
+                                <input type="radio" name="level"> <span class="label-text">Pan</span>
+                            </label>
+                        </div>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+
+
+
+    <div class="container">
+        <div id="grid">
+            
+        </div>
+    </div>
+
+
+
+</section>
+
+
+
+<section class="amezing-offers new-block">
+    <div class="overlay"></div>
+    <div class="fixed-bg parallax" style="background: url('/images/bg1.png');"></div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6">
+                <div class="text-block-stl1">
+                    <div class="title">
+                        <p class="top-h">amazing offers</p>
+                        <h2>50% off pizzas online</h2>
+                        <p class="bottom-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ornare placerat tellus sit amet ullamcorper.</p>
+                        <a href="#" class="btn1 stl2">about more</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6">
+                <div class="img-holder" style="right:0;">
+                    <img src="~/images/pz1.png" alt="" class="img-responsive">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script type="text/javascript">
+    var filterModel = {
+        SearchExpression: "",
+        SortExpression: "",
+        SortDirection: "",
+        StartIndex: 1,
+        PageSize: 10
+    }
+    var dataList = [];
+
+    function getDataList() {
+        pizzeria.helper.postData("/Home/GetPizzaList", filterModel).then(function (data) {
+            if (data) {
+                var html = "";
+                dataList = data["resultSet"];
+
+                for (var i = 0; i < dataList.length; i++) {
+                    var catClass = dataList[i]["categoryId"] == 1 ? "veg" : "non-veg";
+                    var price = parseInt(dataList[i]["price"]);
+
+                    html += '<div class="col-md-3 col-sm-6 col-xs-12">' +
+                        '    <div class="pizza-box">' +
+                        '        <div class="img-holder">' +
+                        '            <img src="/' + dataList[i]["filePath"] + '" class="img-responsive" />' +
+                        '            <span class="pizza-cat ' + catClass + '"></span>' +
+                        '        </div>' +
+                        '        <div class="text-block">' +
+                        '            <h4>' + dataList[i]["title"] + '</h4>' +
+                        '            <h4 class="price-pizza"><i class="fa fa-gbp"></i> ' + price.toFixed(2) + '</h4>' +
+                        '            <button type="button" class="btn4 add-to-cart" data-id="' + dataList[i]["pizzaId"] + '">Add to Cart</button>' +
+                        '        </div>' +
+                        '    </div>' +
+                        '</div>';
+                }
+
+                $("#grid").html(html);
+            }
+        });
+    }
+
+    getDataList();
+
+    $("a[href='" + window.location.pathname + "']").parent("li").addClass("active");
+
+    $(document).on("click", ".add-to-cart", function () {
+        var isSignedIn = '@SignInManager.IsSignedIn(User)';
+
+        if (isSignedIn == "True") {
+            var pizzaId = $(this).attr("data-id");
+
+            pizzeria.helper.getData("/Home/AddToCart?pizzaId=" + pizzaId, {}).then(function (data) {
+                if (data) {
+                    alert(data);
+                }
+            });
+        }
+        else {
+            alert("Please sign in first.");
+            //window.location.href = "/Identity/Account/Login";
+        }        
+    });
+</script>

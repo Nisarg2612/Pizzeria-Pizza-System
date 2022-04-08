@@ -1,0 +1,122 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>@ViewData["Title"] - Admin | Pizzeria</title>
+    <link rel="icon" type="image/x-icon" sizes="32x32" href="~/favicon.ico">
+
+    <environment include="Development">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        @*<link rel="stylesheet" href="~/css/site.css" />*@
+
+        <link rel="stylesheet" href="~/css/fonts/font-awesome/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="~/css/admin_panel/AdminLTE.css" />
+        <link rel="stylesheet" href="~/css/admin_panel/skin-blue.css" />
+
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+    </environment>
+
+    <environment include="Development">
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+        <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+
+        <script src="~/js/pizzeria.helper.js"></script>
+        <script src="~/js/admin_panel/adminlte.js"></script>
+        <script src="~/js/admin_panel/demo.js"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"
+                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                asp-fallback-test="window.jQuery"
+                crossorigin="anonymous"
+                integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT">
+        </script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
+                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+                crossorigin="anonymous"
+                integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd">
+        </script>
+        <script src="~/js/site.min.js" asp-append-version="true"></script>
+    </environment>
+</head>
+
+
+<body class="hold-transition skin-blue sidebar-mini">
+    <div class="wrapper">
+        <header class="main-header">
+
+            <a href="#" class="logo">
+                <span class="logo-mini"><b>PI</b></span>
+                <span class="logo-lg">Pizzeria</span>
+            </a>
+
+            <nav class="navbar navbar-static-top">
+                <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </a>
+                <div class="navbar-custom-menu">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown user user-menu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <img src="~/images/man.png" class="user-image" alt="User Image">
+                                <span class="hidden-xs">User</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="user-header">
+                                    <img src="~/images/team/man.png" class="img-circle" alt="User Image">
+                                    <p>User/p>
+                                </li>
+                                <li class="user-footer">
+                                    <div class="pull-left">
+                                        <a href="#" class="btn btn-default btn-flat">Change Password</a>
+                                    </div>
+                                    <div class="pull-right">
+                                        <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <aside class="main-sidebar">
+            <section class="sidebar">
+                <ul class="sidebar-menu" data-widget="tree">
+                    <li><a asp-action="Index" asp-controller="Admin"><i class="fa fa-desktop"></i> <span>Dashboard</span></a></li>
+                    <li><a asp-action="Pizzas" asp-controller="Admin"><i class="fa fa-dot-circle-o"></i> <span>Pizzas</span></a></li>
+                    <li><a asp-action="Orders" asp-controller="Admin"><i class="fa fa-truck"></i> <span>Orders</span></a></li>
+                    <li><a asp-action="Sizes" asp-controller="Admin"><i class="fa fa-server"></i> <span>Sizes</span></a></li>
+                    <li><a asp-action="Stores" asp-controller="Admin"><i class="fa fa-building-o"></i> <span>Stores</span></a></li>
+                    <li><a asp-action="Users" asp-controller="Admin"><i class="fa fa-user-circle-o"></i> <span>Users</span></a></li>
+                </ul>
+            </section>
+        </aside>
+
+        <div class="content-wrapper">
+            @RenderBody()
+        </div>
+        <footer class="main-footer">
+            <strong>Copyright &copy; @DateTime.Now.Year <a href="#">Pizzeria</a>.</strong> All rights reserved.
+        </footer>
+    </div>
+</body>
+
+
+</html>

@@ -1,0 +1,13 @@
+23-Apr-19 9:01:01 PM	This log contains information about the import operation of the script 'DB_SCRIPT_04222019.sql' into project 'Database' on computer 'DESKTOP-DP3H1HM' by user'Nisarg.
+23-Apr-19 9:01:01 PM	Started importing file: C:\Users\Nisarg\Desktop\Final Year\Krunal\PizzeriaSolution_04222019\PizzeriaSolution_04222019\DB_SCRIPT_04222019.sql 
+23-Apr-19 9:01:01 PM	File name C:\Users\Nisarg\Desktop\Final Year\Krunal\PizzeriaSolution_04222019\PizzeriaSolution_04222019\DB_SCRIPT_04222019.sql (size: 68078)
+23-Apr-19 9:01:01 PM	Parsing import script
+23-Apr-19 9:01:01 PM	Total number of batches in script: 95
+23-Apr-19 9:01:01 PM	Total number of statements in script: 45
+23-Apr-19 9:01:01 PM	The script was successfully imported into the project.
+23-Apr-19 9:01:01 PM	Analyzing schema objects...
+23-Apr-19 9:01:01 PM	Scanning project for duplicate elements
+23-Apr-19 9:01:01 PM	Finished duplicate element processing
+23-Apr-19 9:01:01 PM	In the script that you provided to the import operation, one or more statements were not fully understood. These statements were moved to the ScriptsIgnoredOnImport.sql file. Review the file contents for additional information.
+23-Apr-19 9:01:01 PM	A summary of the import was saved to the following location: C:\Users\Nisarg\Desktop\Final Year\Krunal\PizzeriaSolution_04222019\PizzeriaSolution_04222019\PizzeriaSolution\Database\Import Script Logs\DB_SCRIPT_04222019_s_20190423080101.log
+23-Apr-19 9:01:01 PM	Click Finish to continue...
